@@ -46,7 +46,7 @@ class AdvertisementSerializer(serializers.ModelSerializer):
             if len(Advertisement.objects.filter(creator=request.user, status='OPEN')) > 9:
                 raise ValidationError('Максимум открытых объявлений - 10')
 
-        if request.method == 'PATH':
+        if request.method == 'PATCH':
             if data['status'] == 'OPEN':
                 if len(Advertisement.objects.filter(creator=request.user, status='OPEN')) > 9:
                     raise ValidationError('Максимум открытых объявлений - 10')
